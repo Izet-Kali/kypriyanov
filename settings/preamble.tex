@@ -1,0 +1,172 @@
+\usepackage{extsizes}
+\usepackage{cmap} % для кодировки шрифтов в pdf
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}%Языки используемые в документе
+\usepackage{ucs}
+\usepackage[pdftex]{graphicx} % для вставки картинок
+\graphicspath{{images/}}%Папка с изображениями
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.bmp}%Установка форматов изображений
+
+
+\usepackage[nooneline]{caption}% Переопределение заголовков рисунков и таблиц
+%\RequirePackage{caption}
+	\DeclareCaptionLabelSeparator{defffis}{ -- }%Установка дефиса
+	
+
+\captionsetup[table]{labelsep=defffis,justification=raggedright,singlelinecheck=false,font=normalsize}
+\captionsetup[figure]{justification=centering,labelsep=defffis,name=Рисунок} 
+
+
+
+
+
+
+\usepackage{floatrow} % плавающие обьекты, крутые оформления названий рисунков и тп.
+\floatsetup[table]{style=Plaintop} %Название таблицы сверху
+\usepackage{setspace} 
+\usepackage{pdfpages} %для вставки пдф страниц
+\usepackage{longtable} % Подключение переносимых автоматически таблиц
+\usepackage{amssymb,amsfonts,amsmath,amsthm} % математические дополнения от АМС
+\usepackage{indentfirst} % отделять первую строку раздела абзацным отступом тоже
+\usepackage[usenames,dvipsnames]{color} % названия цветов
+\usepackage[table,xcdraw,hyperref]{xcolor} %цвета
+\usepackage{makecell}
+\usepackage{multirow} % улучшенное форматирование таблиц
+\usepackage{ulem} % подчеркивания
+\usepackage{import}% Импорт файлов
+\usepackage{float} % Расширенное управление плавающими объектами
+
+
+
+
+% список сокращений
+\usepackage{nomencl} 
+%\usepackage{etoolbox} %Нужна для настройки списков
+
+%Настройка списков
+%\renewcommand\nomgroup[1]{%
+%  \item[\bfseries
+%  \ifstrequal{#1}{T}{Определения}{%
+%  \ifstrequal{#1}{O}{Обозначения и сокращения}{}}%
+%]}
+
+
+
+
+
+
+%Графики и схемы
+\usepackage{tikz} % Рисование графиков и тд.
+%\usetikzlibrary{graphs}
+% Блок-схема определяет основную форму
+\tikzstyle{main} = [rectangle, rounded corners, minimum width = 2cm, minimum height=1cm,text centered, draw = black]
+ % Форма стрелки
+\tikzstyle{arrow} = [ultra thick,->,>=stealth]
+
+% Графики функций
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+
+
+
+% Определение размеров полей
+\usepackage{geometry}
+	\geometry{left=3cm}
+	\geometry{right=1.5cm}
+	\geometry{top=2cm}
+	\geometry{bottom=2cm}
+		
+%Установка шрифтов
+\usepackage{xltxtra} % fontspec %пакет хелатех для таймс нью роман
+%\setmainfont{Arial} % таймс нью роман
+\setmainfont{Times New Roman} % таймс нью роман
+\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+
+\frenchspacing
+\pagestyle{plain}
+\linespread{1.4} % полуторный интервал
+\setlength{\parindent}{1.27cm} % Абзацный отступ
+\setlength{\parskip}{0pt}
+\sloppy % указывает, что с залезанием слов на поля следует бороться, даже применяя недопустимо длинные пробелы.
+
+\usepackage{hyperref} %Ссылки
+\definecolor{linkcolor}{HTML}{000000} % цвет ссылок (черный)
+\definecolor{urlcolor}{HTML}{0000ff} % цвет гиперссылок
+
+
+%Библиография
+\usepackage[square,numbers,sort&compress]{natbib}
+\renewcommand{\bibnumfmt}[1]{#1.\hfill} % нумерация источников в самом списке — через точку
+\renewcommand{\bibsection}{\centering{\section*{Список использованных источников}}} % заголовок специального раздела
+\setlength{\bibsep}{0pt}
+%\bibliographystyle{gost780u}
+
+
+\usepackage{tocloft} %регулировка расположения TableOfContent (Оглавления) на странице
+% % Отточия в Оглавлении
+%\renewcommand\cftchapdotsep{\cftdot} %добавляет отточия после \chapter{title}
+\renewcommand\cftsecdotsep{\cftdot} %делает отточия после \section{title} частыми.
+
+
+
+\makeatletter
+\renewcommand{\l@section}{\@dottedtocline{1}{0em}{1.25em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.25em}{1.75em}}
+\renewcommand{\l@subsubsection}{\@dottedtocline{3}{2.75em}{2.6em}}
+\makeatother
+
+
+
+%GGWP мне ебал мозг с требованием по отступу между заголовком и основным текстом, если вдруг кто-то начнет titlespacing надо раскоментить. Тогда надо поменять значения размера шривта в titleformat везде на \normalfont или \large(С ним опасно, но если ориентироваться на госты можно, единственное, что сраться прийдется)
+
+\usepackage{titlesec}    
+
+%%\titlespacing{\crapter}{0pt}{1.4pt}{1.4pt}
+%\titlespacing{\section}{0pt}{1.4pt}{1.4pt}
+%\titlespacing{\subsection}{0pt}{1.4pt}{1.4pt}
+%\titlespacing{\subsubsection}{0pt}{1.4pt}{1.4pt}
+
+%\titleformat{\crapter}[block]{\filcenter}{\centering}{\thesection}{\textbf}
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{\shape\thesection}{1em}{}
+\titleformat{\subsection}[block]{\large\normalfont\bfseries\filcenter}{\shape\thesubsection}{1em}{}
+\titleformat{\subsubsection}[block]{\normalfont\bfseries\filcenter}{\shape\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[block]{\normalfont\bfseries}{\shape\theparagraph}{1em}{}
+\titleformat{\subparagraph}[runin]{\normalfont\bfseries}{\shape\thesubparagraph}{1em}{}
+
+
+%\renewcommand{\aftersection}{6pt plus .1pt}
+
+%Списки
+
+%Настройка отступов в списках enumerate
+\makeatletter
+\let\old@enumerate=\enumerate
+\def\enumerate{\old@enumerate
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\leftskip}{0pt}
+}\makeatother
+
+
+%Настройка отступов в списках itemize
+%\makeatletter
+%\let\old@itemize=\itemize
+%\def\itemize{\old@itemize
+%\setlength{\itemsep}{0pt}
+%\setlength{\parskip}{0pt}
+%\setlength{\leftskip}{0pt}
+%\makeatother
+
+%маркеры списков
+%\renewcommand{\labelitemi}{--}      % Маркер списка --
+%\renewcommand{\labelenumi}{--}      % Список второго уровня
+%\renewcommand{\labelenumii}{--}     % Список третьего уровня
+    %\renewcommand{\labelenumi}{\asbuk{enumi})}    % Список второго уровня
+    %\renewcommand{\labelenumii}{\arabic{enumii})} % Список третьего уровня
+%Нумерация цифрами
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+
+
+\usepackage{circuitikz}

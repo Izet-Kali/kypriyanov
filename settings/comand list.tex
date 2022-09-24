@@ -1,0 +1,37 @@
+% Оглавление
+\newcommand{\mtableofcontents}{
+\thispagestyle{empty}
+    \begin{center}
+		\tableofcontents
+	\end{center}
+\newpage}
+
+%ОПРЕДЕЛЕНИЯ, ОБОЗНАЧЕНИЯ И СОКРАЩЕНИЯ
+%Перечень сокращений и обозначений
+%Не работает корректно
+% Список сокращений
+%Определения, обозначения и сокращения
+\newcommand{\sokraseniya}{
+    \thispagestyle{empty}
+    \renewcommand{\nomname}{Перечень сокращений и обозначений}
+    \makenomenclature
+    \addcontentsline{toc}{section}{Перечень сокращений и обозначений}
+    \newcommand*{\nom}[2]{##1\nomenclature{##1}{##2}}
+    \begin{center} \printnomenclature[5em] \newpage \end{center}
+}
+
+
+%\newcommand{\sokraseniya}{
+%    \thispagestyle{empty}
+%    \section*{Перечень сокращений и обозначений}
+%    \addcontentsline{toc}{section}{Перечень сокращений и обозначений}
+%    \input{sections/0-nomenclature}
+%    \newpage
+%}
+
+
+\newcommand{\data}{«\begin{tikzpicture}\draw(0,0) -- (0.7,0);\end{tikzpicture}»\begin{tikzpicture}\draw(0,0) -- (1.5,0);\end{tikzpicture} \the\year{} г.}
+
+
+%
+%\renewcommand{\appendix}{\renewcommand{\thesection}{Приложение \Asbuk{section}}\newcommand{\appsec}{\newpage\section{}\setcounter{page}{1}}}

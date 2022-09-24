@@ -1,0 +1,44 @@
+\documentclass[a4paper,14pt]{extarticle}%Формат бумаги А4, 14 кегль.
+
+
+\input{settings/preamble.tex} %преамбула
+\input{settings/comand list} % сокращения больших конструкций
+\input{variables} % переменные (для удобства работы с текстом)
+
+
+\setcounter{page}{1}% С какой страницы начать отсчёт
+
+%\includepdf[pages = {1, 3-7}]{sections/tituls.pdf} для вставки ПДФ страниц (титульников например)
+%\footnote{АФЧХ - амплитудно-фазовая частотная характеристика, диаграмма или годограф Найквиста(Nyquist Plot), частотный отклик системы(frequency response).} Сноска
+
+
+
+\begin{document}
+\input{sections/!titul.tex}
+%\input{sections/titul}
+\pagestyle{empty}
+    \begin{center}
+        \tableofcontents
+    \end{center}
+	\newpage
+    \pagestyle{plain}
+\sokraseniya % Команда на генерацию списка сокращений
+\input{sections/0-nomenclature} % список терминов и сокращений
+\input{sections/1-introduction} %введение
+\newpage
+\input{sections/2-analytical-review} %Аналитический обзор
+\input{sections/3-design requirements.tex}
+\newpage
+\input{sections/conclusion} %заключение
+\input{sections/list of sources used} % список источников
+\newpage
+\input{sections/applications}
+%\includepdf[pages = {1}]{app/CD/MRAG.467872.001-EZ.pdf}
+%\includepdf[pages = {1,2}]{app/CD/MRAG.467872.001-PE3.pdf}
+%\includepdf[pages = {1,2}]{app/CD/MRAG.467872.001-SB.pdf}
+%\includepdf[pages = {1,2,3}]{app/CD/MRAG.467872.001.pdf}
+%\includepdf[pages = {1,2,3,4,5,6,7,8}]{app/CD/MRAG.758752.001-PP.pdf}
+\end{document}
+%\newpage
+%\appendix{1}
+%\section*{Приложение}\label{app:one}

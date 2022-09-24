@@ -1,0 +1,65 @@
+\appendix
+\renewcommand{\thesection}{Приложение \Asbuk{section}}
+\newcommand{\appsec}{\newpage\section{}\setcounter{page}{1}\setcounter{equation}{0}}
+% Сбросил номер страницы, номер формулы
+
+\appsec
+\section*{Расчет гамма-процентной наработки на отказ}
+
+Наработка на отказ рассчитывается по формуле \ref{app:equationone}.
+
+\begin{equation}\label{app:equationone}
+    T_0 = \frac{1}{\Lambda_\text{РЭУ}};
+\end{equation}
+Где $T_0$ - наработка на отказ, $\Lambda_\text{РЭУ}$ - суммарная интенсивность отказов РЭУ с учетом электрического режима и условий эксплуатации.  
+
+Гамма-процентная наработка до отказа рассчитывается по формуле \ref{app:equationtwo}.
+
+\begin{equation}
+\label{app:equationtwo}
+T_\Gamma = - \frac{ln\left(\frac{\gamma}{100}\right)}{\Lambda_\text{РЭУ}} = -T_{0}\times ln\left(\frac{\gamma}{100}\right);
+\end{equation}Где $\gamma = 90$ - вероятность безотказной работы.
+
+Исходя из условий: наработка на отказ комплекса из 2000 модулей: 1000 часов. Наработка на отказ одного модуля будет  $T_1 \approx 0,5$.
+
+
+Гамма-процентная наработка до отказа одного модуля:
+
+\begin{equation*}
+	T_{\Gamma1} = -0,5 \times ln\left(\frac{90}{100}\right) = -0,52 ;
+\end{equation*}
+
+\appsec
+
+
+\begin{figure}[H]
+    \centering
+    \fbox{
+\begin{circuitikz} 
+\draw (0,0) node[mixer, box only, anchor=east, fill=cyan](m){}
+(m.west) node[inputarrow]{} to[short, -o] ++(m.west) node[right=-30]{$I_{(t)}$} ++(-0.8,0);
+\draw (m.south) node[inputarrow,rotate=90]{} --
+++(0,-0.7) node[oscillator, box, anchor=north, fill=cyan]{} -- ++ (0,-1.6) node[inputarrow,rotate=270]{} node[circulator, box, anchor=north, fill=cyan](fase){};
+\draw (fase.e) node[right] {$90^\circ$};
+\draw (0,-5) node[mixer, box only, anchor=east, fill=cyan](mm){}
+(mm.west) node[inputarrow]{} to[short, -o] (-2,-5)
+(mm.west) node[right=-60]{$Q_{(t)}$};
+\draw (fase.s) -- (mm.n) node[inputarrow,rotate=270]{};
+\draw (3,-2.5) node[adder, box only, anchor=east, fill=cyan](sum){}
+(m.e);
+\draw (m.e)  -|  (sum.n) node[inputarrow,rotate=270]{};
+\draw (mm.e)  -|  (sum.s) node[inputarrow,rotate=90]{};
+\draw (sum.e)  -- (4,-2.5)
+ (4,-2.5) node[inputarrow]{};
+\end{circuitikz}
+    }
+    \caption{Квадратурный модулятор}
+%    \label{fig:my_label}
+\end{figure}
+
+
+
+%\newpage
+%\pagestyle{empty}
+%\setcounter{page}{1}% С какой страницы начать отсчёт
+%\section*{Приложение Б}
